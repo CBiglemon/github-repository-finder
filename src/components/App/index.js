@@ -2,6 +2,7 @@
 import Header from 'src/components/Header';
 import SearchBar from 'src/components/SearchBar';
 import Message from 'src/components/Message';
+import ReposResults from 'src/components/ReposResults';
 
 import './styles.scss';
 
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <SearchBar />
       <Message />
+      <ReposResults />
     </div>
   );
 }

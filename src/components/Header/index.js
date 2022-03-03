@@ -4,7 +4,7 @@ import './styles.scss';
 
 export default function App() {
   return (
-    <div className="header">
+    <div className="app-header">
       <img className="header__img" alt="logo of GitHub" src={logo} />
     </div>
   );
