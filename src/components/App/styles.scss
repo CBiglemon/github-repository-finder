@@ -1,0 +1,8 @@
+.app {
+  background-color: var(--app-bkg-color);
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: 100vh;
+  width: 85%;
+  filter: drop-shadow(5px 0 5px rgba(0,0,0,.2));
+}
