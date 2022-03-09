@@ -13,8 +13,16 @@ function App() {
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState('');
 
-  const loadResults = () => {
-    console.log(`calling API`);
+  const loadResults = async () => {
+    console.log('calling API');
+    try {
+      const response = await axios.get('https://api.github.com/search/repositories?q=react');
+      setResults(response.data.items);
+      console.log(response.data.items);
+    }
+    catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -26,7 +34,7 @@ function App() {
         onInputSubmit={loadResults}
       />
       <Message />
-      <ReposResults />
+      <ReposResults results={results} />
     </div>
   );
 }
