@@ -21,12 +21,15 @@ function filterResults(items) {
 // == Component
 function App() {
   const [results, setResults] = useState([]);
+  const [numberOfResults, setNumberOfResults] = useState('');
   const [search, setSearch] = useState('');
 
   const loadResults = async () => {
     try {
       const response = await axios.get(`https://api.github.com/search/repositories?q=${search}`);
+      setNumberOfResults(response.data.total_count);
       setResults(response.data.items);
+      console.log(response.data);
     }
     catch (error) {
       console.error(error);
@@ -41,7 +44,9 @@ function App() {
         onInputChange={setSearch}
         onInputSubmit={loadResults}
       />
-      <Message />
+      <Message
+        resultsFound={numberOfResults}
+      />
       <ReposResults results={filterResults(results)} />
     </div>
   );

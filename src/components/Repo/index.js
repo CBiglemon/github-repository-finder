@@ -24,5 +24,5 @@ Repo.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  imgUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
 };
