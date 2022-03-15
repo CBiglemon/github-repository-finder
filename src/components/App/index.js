@@ -8,17 +8,25 @@ import ReposResults from 'src/components/ReposResults';
 
 import './styles.scss';
 
+function filterResults(items) {
+  return items.map((item) => ({
+    id: item.id,
+    title: item.full_name,
+    imageUrl: item.owner.avatar_url,
+    owner: item.owner.login,
+    description: item.description,
+  }));
+}
+
 // == Component
 function App() {
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState('');
 
   const loadResults = async () => {
-    console.log('calling API');
     try {
-      const response = await axios.get('https://api.github.com/search/repositories?q=react');
+      const response = await axios.get(`https://api.github.com/search/repositories?q=${search}`);
       setResults(response.data.items);
-      console.log(response.data.items);
     }
     catch (error) {
       console.error(error);
@@ -34,7 +42,7 @@ function App() {
         onInputSubmit={loadResults}
       />
       <Message />
-      <ReposResults results={results} />
+      <ReposResults results={filterResults(results)} />
     </div>
   );
 }

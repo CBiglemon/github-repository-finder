@@ -13,11 +13,10 @@ export default function ReposResults({ results }) {
             .map((result) => (
               <Repo
                 key={result.id}
-                name={result.name}
-                fullname={result.full_name}
+                imageUrl={result.imageUrl}
+                title={result.title}
+                owner={result.owner}
                 description={result.description}
-                url={result.html_url}
-                imgUrl={result.owner.avatar_url}
               />
             ))
         }

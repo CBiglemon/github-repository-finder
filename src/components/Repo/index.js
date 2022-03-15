@@ -2,15 +2,15 @@ import PropTypes from 'prop-types';
 import { Card, Image } from 'semantic-ui-react';
 
 export default function Repo({
-  name, fullname, description, url, imgUrl,
+  title, description, url, imageUrl,
 }) {
   return (
     <Card>
-      <Image src={imgUrl} wrapped ui={false} />
+      <Image src={imageUrl} wrapped ui={false} />
       <Card.Content>
-        <Card.Header>{fullname}</Card.Header>
+        <Card.Header>{title}</Card.Header>
         <Card.Meta>
-          <a href={url} className="date">{name}</a>
+          <a href={url} className="date">{title}</a>
         </Card.Meta>
         <Card.Description>
           {description}
@@ -21,8 +21,7 @@ export default function Repo({
 }
 
 Repo.propTypes = {
-  name: PropTypes.string.isRequired,
-  fullname: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
